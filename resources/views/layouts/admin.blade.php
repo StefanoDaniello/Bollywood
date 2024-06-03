@@ -20,9 +20,9 @@
 </head>
 
 <body>
-        <main class="container-fluid">
-            @yield('content')
-        </main>
+    <main class="container-fluid">
+        @yield('content')
+    </main>
 </body>
 
 </html>

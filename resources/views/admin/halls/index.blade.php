@@ -2,24 +2,66 @@
 @section('title', 'Halls')
 
 @section('content')
-<ul>
-    @foreach ($halls as $hall)
-    <li>
-        <a href="{{route('admin.halls.show', $hall->id)}}">{{ $hall->name }}</a>
-    </li>   
-    <li><a href="">{{ $hall->color }}</a></li>
-    <li><a href="">{{ $hall->seats_num }}</a></li>
-    <li><a href="">{{ $hall->isense }}</a></li>
-    <li><a href="">{{ $hall->availability }}</a></li>
-    <li><a href="">{{ $hall->base_price }}</a></li>
-    <a href="{{route('admin.halls.edit', $hall->id)}}" title="Modifica"><i class="fa-solid fa-pen"></i></a>
-    <form action="{{route('admin.halls.destroy' , $hall->id)}}" method="POST" class="d-inline-block">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $hall->name }}">
-            <i class="fa-solid fa-trash"></i>
-        </button>
-    </form>
-    @endforeach
-</ul>
+<div class="container m-4">
+
+<div class="d-flex justify-content-end my-3">
+
+    <button class="btn btn-primary"><a href="{{ route('admin.halls.create') }}" class="text-white">Create new hall</a></button>
+
+</div>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Colore</th>
+            <th>Numero di posti</th>
+            <th>Isense</th>
+            <th>Disponibilità</th>
+            <th>Prezzo base</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($halls as $hall)
+        <tr>
+            <td><a href="{{ route('admin.halls.show', $hall->id) }}" class="text-white">{{ $hall->name }}</a></td>
+            <td>{{ $hall->color }}</td>
+            <td>{{ $hall->seats_num }}</td>
+            @if ($hall->isense == 1)
+                <td>Si</td>
+            @else
+                <td>No</td>
+            @endif
+            @if ($hall->availability == 1)
+                <td>Disponibile</td>
+            @else
+                <td>Non Disponibile</td>
+            @endif
+            <td>{{ $hall->base_price }} €</td>
+            <td>
+                <a href="{{ route('admin.halls.show', $hall->id) }}" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
+                <a href="{{ route('admin.halls.edit', $hall->id) }}" title="Modifica"><i class="fa-solid fa-pen"></i></a>
+                {{-- <form action="{{ route('admin.halls.destroy', $hall->id) }}" method="POST" class="d-inline-block" title="Elimina">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $hall->name }}" >
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form> --}}
+                <form action="{{route('admin.halls.destroy', $hall->id)}}" method="POST" class="d-inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="delete-button border-0 bg-transparent" title="Elimina" 
+                    data-item-title="{{ $hall->name }}" >
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+</div>
+@include('partials.modal-delete')
 @endsection

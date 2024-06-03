@@ -2,7 +2,10 @@
 @section('title', 'Halls')
 
 @section('content')   
-    <h1>Create</h1>
+<div class="d-flex align-items-center">
+    <a href="{{ route('admin.halls.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
+    <h1 class="mx-3">Create</h1>
+</div>
     <form action="{{route('admin.halls.store')}}" method="POST">
         @csrf
         <div class="mb-3">
@@ -51,14 +54,14 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="base_price" class="form-label">base_price</label>
-            <input type="number" min="1" step="any" id="base_price" name="base_price" value="{{ old('base_price') }}"/>
+            <label for="base_price" class="form-label">Base Price</label>
+            <input type="number" class="form-control w-25" min="1"  id="base_price" name="base_price" value="{{ old('base_price') }}"/>
         </div>
         
         {{-- BOTTONI --}}
         <div class="mb-3">
             <button type="submit" class="btn btn-primary text-white">Create</button>
-            <button type="reset"  class="btn btn-danger mx-4">Exit</button>
+            <button type="reset"  class="btn btn-danger mx-4">Reset</button>
 
         </div>
         

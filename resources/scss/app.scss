@@ -8,3 +8,21 @@ $fa-font-path: "../webfonts" !default;
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
 
 @import '~bootstrap/scss/bootstrap';
+
+.fa-eye:hover{
+    color: cornflowerblue;
+}
+.fa-pen:hover{
+    color: green;
+}
+.fa-trash:hover{
+    color: red;
+}
+a{
+    text-decoration: none;
+    color: gray;
+}
+
+body{
+    background-color: cadetblue;
+}

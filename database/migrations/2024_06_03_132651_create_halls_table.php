@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('color', 50)->nullable();
             $table->integer('seats_num')->required()->unsigned(); 
             $table->boolean('isense')->required()->default(false);
-            $table->boolean('availability')->required()->default(true); 
+            $table->boolean('availability')->required()->default(true);
+            //Attenzione alle cifre del decimal
             $table->decimal('base_price', 4,2)->required()->unsigned();
             $table->timestamps();
         });
