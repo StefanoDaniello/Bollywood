@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\Hall;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,8 @@ class HallController extends Controller
      */
     public function index()
     {
-        //
+        $halls = Hall::all();
+        return view('admin.halls.index', compact('halls'));
     }
 
     /**
@@ -20,7 +21,7 @@ class HallController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.halls.create');
     }
 
     /**
@@ -28,7 +29,9 @@ class HallController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $newHall = Hall::create($form_data);
+        return redirect()->route('admin.halls.show', $newHall->id);
     }
 
     /**
@@ -36,7 +39,7 @@ class HallController extends Controller
      */
     public function show(Hall $hall)
     {
-        //
+        return view('admin.halls.show', compact('hall'));
     }
 
     /**
@@ -44,7 +47,7 @@ class HallController extends Controller
      */
     public function edit(Hall $hall)
     {
-        //
+        return view('admin.halls.edit', compact('hall'));
     }
 
     /**
@@ -52,7 +55,9 @@ class HallController extends Controller
      */
     public function update(Request $request, Hall $hall)
     {
-        //
+        $form_data = $request->all();
+        $hall->update($form_data);
+        return redirect()->route('admin.halls.show', $hall->id);
     }
 
     /**
@@ -60,6 +65,7 @@ class HallController extends Controller
      */
     public function destroy(Hall $hall)
     {
-        //
+        $hall->delete();
+        return redirect()->route('admin.halls.index')->with('message', 'Hall,' . $hall->name .' deleted successfully');
     }
 }
