@@ -26,7 +26,7 @@
             @endif
           </div>
           <div>Numero Posti: {{ $hall->seats_num }}</div>
-          <div>Prezzo Base: {{ $hall->base_price }}</div>
+          <div>Prezzo Base: {{ $hall->base_price }} €</div>
           <a href="{{ route('admin.halls.edit', $hall->id) }}" class="btn btn-primary mt-3">Edit</a>
         </div>
     </div>
