@@ -60,7 +60,7 @@
             <input type="checkbox" id="isense" name="isense" value="0"/>
             @else
             <label for="isense" class="form-label">Yes</label>
-            <input type="checkbox" id="isense" name="isense" value="1" />
+            <input type="checkbox" id="isense" name="isense" value="1"/>
             <label for="isense" class="form-label">No</label>
             <input type="checkbox" id="isense" name="isense" value="0" checked />
             @endif
@@ -68,12 +68,12 @@
     </div>
     <div class="mb-3">
         <label for="base_price" class="form-label">base_price</label>
-        <input type="number" min="1" step="any" />
+        <input type="number" min="1" step="any" id="base_price" name="base_price" />
     </div>
     
     {{-- BOTTONI --}}
     <div class="mb-3">
-        <button type="submit" class="btn btn-primary text-white">Crea</button>
+        <button type="submit" class="btn btn-primary text-white">Modifica</button>
         <button type="reset"  class="btn btn-danger mx-4">Svuota campi</button>
 
     </div>
