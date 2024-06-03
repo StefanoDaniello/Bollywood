@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('color');
-            $table->integer('seats_num');
-            $table->boolean('isense');
-            $table->boolean('availability');
-            $table->decimal('price',5,2);
+            $table->string('name',255)->required();
+            $table->string('color', 50)->nullable();
+            $table->integer('seats_num')->required()->unsigned(); 
+            $table->boolean('isense')->required()->default(false);
+            $table->boolean('availability')->required()->default(true); 
+            $table->decimal('base_price', 4,2)->required()->unsigned();
             $table->timestamps();
         });
     }
-            # ban wojtek
     /**
      * Reverse the migrations.
      */
