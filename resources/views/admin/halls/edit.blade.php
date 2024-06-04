@@ -8,7 +8,7 @@
         <h1 class="mx-3">Edit</h1>
     </div>
 
-<form action="{{route('admin.halls.update', $hall->id)}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('admin.halls.update', $hall->id)}}" method="POST" >
     @csrf  
     @method('PUT')  
     <div class="mb-3">
@@ -83,7 +83,6 @@
     <div class="mb-3">
         <button type="submit" class="btn btn-primary text-white">Modifica</button>
         <button type="reset"  class="btn btn-danger mx-4">Svuota campi</button>
-
     </div>
 </form>   
 </div>

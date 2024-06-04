@@ -22,7 +22,7 @@ class StoreHallRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:halls|max:255',
+            'name' => 'required|unique:halls|max:255|min:3',
             'color' => 'nullable|max:50',
             'seats_num' => 'required',
             'isense' => 'required',
@@ -35,6 +35,7 @@ class StoreHallRequest extends FormRequest
     {
         return [
             'name.required' => 'Il titolo è obbligatorio!',
+            'name.min' => 'Il titolo deve essere lungo almeno :min caratteri!',
             'name.unique:halls' => 'Questo titolo esiste già!',
             'name.max' => 'Il titolo deve essere lungo massimo :max caratteri!',
             'color.max' => 'Il colore deve essere lungo massimo :max caratteri!',
