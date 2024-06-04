@@ -25,7 +25,7 @@
     <tbody>
         @foreach ($halls as $hall)
         <tr>
-            <td><a href="{{ route('admin.halls.show', $hall->id) }}" class="text-white">{{ $hall->name }}</a></td>
+            <td>{{ $hall->name }}</td>
             <td>{{ $hall->color }}</td>
             <td>{{ $hall->seats_num }}</td>
             @if ($hall->isense == 1)
@@ -42,13 +42,6 @@
             <td>
                 <a href="{{ route('admin.halls.show', $hall->id) }}" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
                 <a href="{{ route('admin.halls.edit', $hall->id) }}" title="Modifica"><i class="fa-solid fa-pen"></i></a>
-                {{-- <form action="{{ route('admin.halls.destroy', $hall->id) }}" method="POST" class="d-inline-block" title="Elimina">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $hall->name }}" >
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </form> --}}
                 <form action="{{route('admin.halls.destroy', $hall->id)}}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
@@ -56,7 +49,7 @@
                     data-item-title="{{ $hall->name }}" >
                       <i class="fa-solid fa-trash"></i>
                     </button>
-                  </form>
+                </form>
             </td>
         </tr>
         @endforeach
