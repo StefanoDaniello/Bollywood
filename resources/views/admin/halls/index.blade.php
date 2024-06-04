@@ -2,7 +2,7 @@
 @section('title', 'Halls')
 
 @section('content')
-<div class="container m-4">
+<div class="container m-4 m-auto">
 
 <div class="d-flex justify-content-end my-3">
 

@@ -29,3 +29,19 @@ deleteSubmitButtons.forEach((button) => {
         });
     });
 });
+
+
+const image = document.getElementById("cover_image");
+if(image) {
+    image.addEventListener("change", function () {
+
+        const preview = document.getElementById("uploadPreview");
+        const reader = new FileReader();
+        reader.readAsDataURL(image.files[0]);
+        reader.onload = function (reader){
+            preview.src = reader.target.result;
+        };
+    });
+}
+
+
