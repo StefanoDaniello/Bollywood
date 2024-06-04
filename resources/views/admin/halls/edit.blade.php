@@ -2,8 +2,8 @@
 @section('title', 'Halls')
 
 @section('content')
-<div class="container">
-    <div class="d-flex align-items-center">
+<div class="container m-auto">
+    <div class="d-flex align-items-center mt-3">
         <a href="{{ route('admin.halls.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
         <h1 class="mx-3">Edit</h1>
     </div>
@@ -72,8 +72,8 @@
         </div>
     </div>
     <div class="mb-3">
-        <label for="base_price" class="form-label">base_price</label>
-        <input type="number" class="form-control"  min="1" step="any" id="base_price" name="base_price" 
+        <label for="base_price" class="form-label ">base_price</label>
+        <input type="number" class="form-control w-25"  min="1" step="any" id="base_price" name="base_price" 
         value="{{ old('base_price', $hall->base_price) }}"/>
         @error('base_price')
             <div class ="alert alert-danger">{{$errors->first('seats_num')}}</div>

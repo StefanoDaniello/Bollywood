@@ -1,8 +1,12 @@
 @extends('layouts.admin')
 @section('title', 'Movies')
 
-@section('content')   
-<div class="d-flex align-items-center">
+@section('content')  
+
+<div class="container m-auto">
+
+    
+<div class="d-flex align-items-center mt-3">
     <a href="{{ route('admin.movies.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
     <h1 class="mx-3">Create</h1>
 </div>
@@ -38,12 +42,12 @@
             <div class="mb-3">
             <label for="cover_image" class="form-label">cover_image</label>
             <input type="file" class="form-control @error('cover_image') is-invalid @enderror" id="cover_image"
-                name="cover_image">
-                @error('cover_image')
-                    <div class ="invalid-feedback">{{$errors->first('cover_image')}}</div>
-                @enderror 
-                <h4 class="mt-3">Your image</h4>
-                <img class="shadow" width="150" src="https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg" alt="" id="uploadPreview">
+            name="cover_image">
+            @error('cover_image')
+                <div class ="invalid-feedback">{{$errors->first('cover_image')}}</div>
+            @enderror 
+            <h4 class="mt-3">Your image</h4>
+            <img class="shadow rounded-3" width="150" src="https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg" alt="" id="uploadPreview">
         </div> 
 
 
@@ -86,8 +90,8 @@
         <div class="mb-3">
             <button type="submit" class="btn btn-primary text-white">Create</button>
             <button type="reset"  class="btn btn-danger mx-4">Reset</button>
-
         </div>
         
     </form>
+</div>
 @endsection

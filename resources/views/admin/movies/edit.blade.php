@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container m-auto">
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center mt-3">
         <a href="{{ route('admin.movies.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
         <h1 class="mx-3">Edit</h1>
     </div>
@@ -48,9 +48,9 @@
                 <div class ="invalid-feedback">{{$errors->first('cover_image')}}</div>
             @enderror 
             @if($movie->cover_image)
-            <img class="shadow" width="150" src="{{asset('storage/' . $movie->cover_image)}}" alt="{{$movie->title}}" id="uploadPreview">
+            <img class="shadow rounded-3 mt-3" width="150" src="{{asset('storage/' . $movie->cover_image)}}" alt="{{$movie->title}}" id="uploadPreview">
             @else
-            <img class="shadow" width="150" src="{{ old('cover_image', $movie->cover_image) }}" alt="{{$movie->title}}" id="uploadPreview">
+            <img class="shadow rounded-3 mt-3" width="150" src="{{ old('cover_image', $movie->cover_image) }}" alt="{{$movie->title}}" id="uploadPreview">
             @endif
     </div>
 

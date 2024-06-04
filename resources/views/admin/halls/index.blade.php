@@ -2,7 +2,7 @@
 @section('title', 'Halls')
 
 @section('content')
-<div class="container m-4 m-auto">
+<div class="container m-4 m-auto" id="halls_table">
 
 <div class="d-flex justify-content-end my-3">
 
@@ -58,3 +58,5 @@
 </div>
 @include('partials.modal-delete')
 @endsection
+
+
