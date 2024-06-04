@@ -6,7 +6,7 @@
     <a href="{{ route('admin.halls.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
     <h1 class="mx-3">Create</h1>
 </div>
-    <form action="{{route('admin.halls.store')}}" method="POST">
+    <form action="{{route('admin.halls.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>

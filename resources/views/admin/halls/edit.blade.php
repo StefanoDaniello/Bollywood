@@ -8,7 +8,7 @@
         <h1 class="mx-3">Edit</h1>
     </div>
 
-<form action="{{route('admin.halls.update', $hall->id)}}" method="POST">
+<form action="{{route('admin.halls.update', $hall->id)}}" method="POST" enctype="multipart/form-data">
     @csrf  
     @method('PUT')  
     <div class="mb-3">
