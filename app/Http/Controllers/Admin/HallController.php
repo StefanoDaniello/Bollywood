@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Hall;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreHallRequest;
+use App\Http\Requests\UpdateHallRequest;
 class HallController extends Controller
 {
     /**
@@ -27,9 +29,9 @@ class HallController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreHallRequest $request)
     {
-        $form_data = $request->all();
+        $form_data = $request->validated();
         $newHall = Hall::create($form_data);
         return redirect()->route('admin.halls.show', $newHall->id);
     }
@@ -53,9 +55,9 @@ class HallController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Hall $hall)
+    public function update(UpdateHallRequest $request, Hall $hall)
     {
-        $form_data = $request->all();
+        $form_data = $request->validated();
         $hall->update($form_data);
         return redirect()->route('admin.halls.show', $hall->id);
     }
