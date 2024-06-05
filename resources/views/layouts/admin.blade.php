@@ -28,3 +28,11 @@
 </body>
 
 </html>
+
+
+<style lang="scss" scoped>
+body{
+    color: white;
+    background-image: url(https://www.marmomac.com/wp-content/uploads/2022/08/Marmo-Portoro-copertina-1024x683.jpg)
+}
+</style>

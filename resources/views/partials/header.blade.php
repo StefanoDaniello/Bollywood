@@ -1,9 +1,9 @@
-<header>
+<header id="header">
 
     <nav class="navbar navbar-expand-md navbar-light  shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <img src="https://www.creativefabrica.com/wp-content/uploads/2021/03/18/flat-cinema-logo-design-template-Graphics-9724954-1.jpg" alt="" id="logo" width="100">
+                <img src="../../img/logo-nobg.png" alt="" id="logo" width="100">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

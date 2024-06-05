@@ -31,7 +31,7 @@ html {
 
 body {
     margin-bottom: 400px; /* Altezza del footer */
-    background-color: black;
+    background-image: url("../img/marmo.jpg");
 }
 
 footer {
@@ -40,5 +40,14 @@ footer {
     width: 100%;
 }
 nav{
-    background-color: lightgray;
+    background-color: gray;
+}
+#header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+main{
+    margin-top: 150px;
 }
