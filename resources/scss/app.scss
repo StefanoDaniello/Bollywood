@@ -31,11 +31,14 @@ html {
 
 body {
     margin-bottom: 400px; /* Altezza del footer */
-    background-color: cadetblue;
+    background-color: black;
 }
 
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+nav{
+    background-color: lightgray;
 }

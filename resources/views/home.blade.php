@@ -46,15 +46,16 @@
     border-radius: 50%;
   }
   .mask1 {
-  -webkit-mask-image: url(img/Bollywoood2.png);
-  mask-image: url(img/Bollywoood2.png);
+  -webkit-mask-image: url(img/bollywood.png);
+  mask-image: url(img/bollywood.png);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat; 
   -webkit-mask-position: center;
+  mask-position: center;
   -webkit-mask-size: cover;
   mask-size: cover;
   img{
-    width: 2000px;
+    width: 1500px;
     height: 400px;
   }   
 }

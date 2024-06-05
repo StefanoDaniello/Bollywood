@@ -23,7 +23,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm" >
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <img src="https://www.creativefabrica.com/wp-content/uploads/2021/03/18/flat-cinema-logo-design-template-Graphics-9724954-1.jpg" alt="" id="logo" width="100">
