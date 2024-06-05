@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<div class="container my-4 d-flex justify-content-center">
-
+<div class="container my-4 d-flex justify-content-center align-items-center flex-column">
+    <div class="mask1">
+        <img src="img\all_movies.jpg" alt="" >
+    </div>
     <div id="moviesCarousel" class="carousel carousel-dark slide mx-4">
         <h1 class="text-center text-white">Most Popular Movies</h1>
         <div class="carousel-indicators">
@@ -31,6 +33,7 @@
         </button>
     </div>
 </div>
+
 </div>
 @endsection
 
@@ -42,5 +45,18 @@
     background-color: gray ;
     border-radius: 50%;
   }
+  .mask1 {
+  -webkit-mask-image: url(img/Bollywoood2.png);
+  mask-image: url(img/Bollywoood2.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat; 
+  -webkit-mask-position: center;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  img{
+    width: 2000px;
+    height: 400px;
+  }   
+}
 
 </style>
