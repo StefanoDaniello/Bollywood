@@ -31,9 +31,8 @@
         </button>
     </div>
 </div>
-       
+</div>
 @endsection
-
 
 <style lang="scss" scoped>
   .carousel{
@@ -42,6 +41,6 @@
   .carousel-control-prev-icon, .carousel-control-next-icon {
     background-color: gray ;
     border-radius: 50%;
-
   }
+
 </style>

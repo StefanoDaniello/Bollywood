@@ -36,11 +36,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('admin/halls') }}">{{ __('Sale') }}</a>
+                        <li class="nav-item @if(request()->is('/')) active @endif">
+                            <a class="nav-link @if(request()->is('/')) text-primary fw-bold @endif" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('admin/movies') }}">{{ __('Movie') }}</a>
+                        <li class="nav-item @if(request()->is('admin/halls')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/halls')) text-primary  fw-bold @endif" href="{{url('admin/halls') }}">{{ __('Sale') }}</a>
+                        </li>
+                        <li class="nav-item @if(request()->is('admin/movies')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/movies')) text-primary fw-bold @endif" href="{{url('admin/movies') }}">{{ __('Movie') }}</a>
                         </li>
                     </ul>
 
