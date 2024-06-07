@@ -10,7 +10,7 @@ use App\Models\Movie;
 class Review extends Model
 {
     use HasFactory;
-    protected $fillable = ['author', 'content', 'rating'];
+    protected $fillable = ['author', 'content', 'rating', 'movie_id'];
     public function movie(){
         return $this->belongsTo(Movie::class);
     }

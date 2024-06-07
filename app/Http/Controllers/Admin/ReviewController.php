@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\controller;
 use App\Models\Review;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 
@@ -23,7 +24,8 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        return view('admin.reviews.create');
+        $movies = Movie::all();
+        return view('admin.reviews.create', compact('movies'));
     }
 
     /**

@@ -20,7 +20,7 @@
     </div>
   </div>
   
-
+@if($movie->reviews)
   <table class="table table-striped">
     <thead>
         <tr>
@@ -47,15 +47,13 @@
                   </button>
 
                 </form>
-
-
             </td>
           </tr>
         @endforeach
-
-
       </tbody>
   </table>
+@endif
+
 </div>
 
 @endsection
