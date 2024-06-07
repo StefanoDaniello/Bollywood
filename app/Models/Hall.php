@@ -10,4 +10,9 @@ class Hall extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'color', 'seats_num', 'isense', 'availability', 'base_price'];
+
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class)->withTimestamps();
+    }
 }

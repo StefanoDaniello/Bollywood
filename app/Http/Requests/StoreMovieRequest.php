@@ -30,6 +30,7 @@ class StoreMovieRequest extends FormRequest
             'trailer' => 'nullable|max:255',
             'language' => 'required|max:100',
             'duration' => 'required',
+            'halls' => 'required',
         ];
     }
 
@@ -47,6 +48,7 @@ class StoreMovieRequest extends FormRequest
             'language.required' => 'La lingua è obbligatoria!',
             'language.max' => 'Il linguaggio è obbligatorio!',
             'duration.required' => 'La durata è obbligatoria!',
+            'halls.required' => 'Le sale sono obbligatorie!',
         ];
     }
 }

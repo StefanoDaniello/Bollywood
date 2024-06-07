@@ -86,6 +86,27 @@
                 <div class ="invalid-feedback">{{$errors->first('duration')}}</div>
             @enderror 
         </div>
+
+        <div class="form-group">
+            <p>Select  Halls:</p>
+            @foreach ($halls as $hall)
+                <div>
+                    <input class="form-check-input" type="checkbox" value="{{$hall->id}}"  name="halls[]"
+                    {{-- per far si che i tag selezionati vengano salvati utilizzo 
+                        un array dove veranno inseriti i valori di essi,
+                        e tramite old verranno recuperati quando c'e un errore--}}
+                    {{in_array($hall->id, old('halls', [])) ? 'checked' : ''}}>
+                    <label class="form-check-label" for="">
+                        {{$hall->name}}
+                    </label>
+                </div>
+            @endforeach
+            @error('halls')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
+        </div>
+
+
         
         <div class="mb-3">
             <button type="submit" class="btn btn-primary text-white">Create</button>
