@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HallController;
 use App\Http\Controllers\Admin\MovieController;
+use App\Http\Controllers\Admin\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('halls', HallController::class);
     Route::resource('movies', MovieController::class);
+    Route::resource('reviews', ReviewController::class);
 });
 
 Route::middleware('auth')->group(function () {

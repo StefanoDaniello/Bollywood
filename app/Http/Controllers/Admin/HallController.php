@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Hall;
 use Illuminate\Http\Request;
@@ -69,6 +70,6 @@ class HallController extends Controller
     public function destroy(Hall $hall)
     {
         $hall->delete();
-        return redirect()->route('admin.halls.index')->with('message', 'Hall,' . $hall->name .' deleted successfully');
+        return redirect()->route('admin.halls.index')->with('message', 'Hall,' . $hall->name . ' deleted successfully');
     }
 }

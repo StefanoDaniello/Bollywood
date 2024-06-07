@@ -45,6 +45,9 @@
                         <li class="nav-item @if(request()->is('admin/movies')) active @endif">
                             <a class="nav-link @if(request()->is('admin/movies')) text-primary fw-bold @endif" href="{{url('admin/movies') }}">{{ __('Movie') }}</a>
                         </li>
+                        <li class="nav-item @if(request()->is('admin/reviews')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/reviews')) text-primary fw-bold @endif" href="{{url('admin/reviews') }}">{{ __('Reviews') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
