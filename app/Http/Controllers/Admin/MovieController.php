@@ -42,6 +42,11 @@ class MovieController extends Controller
             $form_data['cover_image'] = $path;
         }
         $newMovie = Movie::create($form_data);
+        if($request->has('halls')){ 
+            //con attach passiamo l' array dei tag 
+            $newMovie->halls()->attach($request->halls);
+        }
+
         return redirect()->route('admin.movies.show', $newMovie->id);
     }
 
@@ -58,7 +63,8 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('admin.movies.edit', compact('movie', 'reviews', 'halls'));
+        $halls = Hall::all();
+        return view('admin.movies.edit', compact('movie', 'halls'));
     }
 
     /**
@@ -71,6 +77,14 @@ class MovieController extends Controller
         if ($request->hasFile('cover_image')) {
             $path = Storage::put('movie_images', $request->cover_image);
             $form_data['cover_image'] = $path;
+        }
+
+        if($request->has('halls')){
+            //con sync passiamo l' array dei tag che veranno aggiunti alla tabella pivot 
+            $movie->halls()->sync($request->halls);
+        }else{
+            //altrimenti passiamo un array vuoto
+            $movie->halls()->sync([]);
         }
         return redirect()->route('admin.movies.show', $movie->id);
     }
