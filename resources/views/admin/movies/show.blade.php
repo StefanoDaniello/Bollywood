@@ -20,6 +20,42 @@
     </div>
   </div>
   
+
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">Author</th>
+          <th scope="col">Content</th>
+          <th scope="col">Rating</th>          
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($movie->reviews as $review)
+        <tr>
+            <td>{{$review->author}}</td>
+            <td>{{$review->content}}</td>
+            <td>{{$review->rating}}</td>
+            <td>
+                <a href="{{route('admin.reviews.show', $review->id)}}" title="Show" class="text-black px-2"><i class="fa-solid fa-eye"></i></a>
+                <a href="{{route('admin.reviews.edit', $review->id)}}" title="Edit" class="text-black px-2"><i class="fa-solid fa-pen"></i></a>
+                <form action="{{route('admin.reviews.destroy', $review->id)}}" method="review" class="d-inline-block">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $review->author }}" data-item-id = "{{ $review->id }}">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+
+                </form>
+
+
+            </td>
+          </tr>
+        @endforeach
+
+
+      </tbody>
+  </table>
 </div>
 
 @endsection

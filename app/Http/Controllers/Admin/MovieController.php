@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
+use App\Models\Review;
+use App\Models\Hall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreMovieRequest;
@@ -23,7 +25,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('admin.movies.create');
+        $reviews = Review::all();
+        $halls = Hall::all();
+        return view('admin.movies.create', compact('reviews', 'halls'));
     }
 
     /**
@@ -54,7 +58,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('admin.movies.edit', compact('movie'));
+        return view('admin.movies.edit', compact('movie', 'reviews', 'halls'));
     }
 
     /**
@@ -76,6 +80,10 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
+        // elimina il record dell' immagine della copertina
+        if ($movie->cover_image) {
+            Storage::delete($movie->cover_image);
+        }
         $movie->delete();
         return redirect()->route('admin.movies.index')->with('message', 'Movie,' . $movie->name .' deleted successfully');
     }
