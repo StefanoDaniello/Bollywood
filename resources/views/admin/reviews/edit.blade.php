@@ -29,6 +29,20 @@
                 <div class ="invalid-feedback">{{$errors->first('content')}}</div>
             @enderror 
     </div> 
+
+    <div class="mb-3">
+                <label for="movie_id" class="form-label">Select Movie</label>
+                <select name="movie_id" id="movie_id" class="form-control @error('movie_id') is-invalid @enderror">
+                    <option value="">Select Movie</option>
+                  @foreach ($movies as $movie)
+                      <option value="{{ $movie->id }}" {{ $review->movie_id == $movie->id ? 'selected' : '' }} >
+                        {{$movie->title}}</option>
+                  @endforeach
+                </select>
+                @error('category_id')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
     <div class="mb-3">
                 <label for="rating" class="form-label">Rating</label>
                 <input type="text" class="form-control @error('rating') is-invalid @enderror" id="rating"

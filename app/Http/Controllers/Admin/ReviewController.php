@@ -51,7 +51,8 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        return view('admin.reviews.edit', compact('review'));
+        $movies = Movie::all();
+        return view('admin.reviews.edit', compact('review', 'movies'));
     }
 
     /**
