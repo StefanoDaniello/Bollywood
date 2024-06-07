@@ -15,6 +15,12 @@
         <p class="card-text"> {{ $movie->release_date }}</p>
         <p class="card-text"> {{ $movie->duration }}</p>
         <p class="card-text">{{ $movie->overview }}</p>
+        @if($movie->halls)
+            {{-- $post->tags esso e un array di tags--}}
+            @foreach ($movie->halls as $hall)
+                <p>Sala: {{$hall->name}}</p>
+            @endforeach
+          @endif
         <a href="{{ route('admin.movies.edit', $movie->id) }}" class="btn btn-primary mt-3">Edit</a>
       </div>
     </div>
