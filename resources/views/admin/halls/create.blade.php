@@ -9,6 +9,8 @@
         <a href="{{ route('admin.halls.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
         <h1 class="mx-3">Create</h1>
     </div>
+
+    
         <form action="{{route('admin.halls.store')}}" method="POST" >
             @csrf
             <div class="mb-3">
@@ -50,10 +52,10 @@
                     <div>
                         Available?
                     </div>
-                    <label for="isense" class="form-label">Yes</label>
-                    <input type="checkbox" id="isense" name="isense" value="1" checked/>
-                    <label for="isense" class="form-label">No</label>
-                    <input type="checkbox" id="isense" name="isense" value="0"/>
+                    <label for="availability" class="form-label">Yes</label>
+                    <input type="checkbox" id="availability" name="availability" value="1" checked/>
+                    <label for="availability" class="form-label">No</label>
+                    <input type="checkbox" id="availability" name="availability" value="0"/>
                 </div>
             </div>
             <div class="mb-3">
