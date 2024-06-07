@@ -45,7 +45,7 @@
             <td>
                 <a href="{{route('admin.reviews.show', $review->id)}}" title="Show" class="text-black px-2"><i class="fa-solid fa-eye"></i></a>
                 <a href="{{route('admin.reviews.edit', $review->id)}}" title="Edit" class="text-black px-2"><i class="fa-solid fa-pen"></i></a>
-                <form action="{{route('admin.reviews.destroy', $review->id)}}" method="review" class="d-inline-block">
+                <form action="{{route('admin.reviews.destroy', $review->id)}}" method="POST" class="d-inline-block">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $review->author }}" data-item-id = "{{ $review->id }}">
