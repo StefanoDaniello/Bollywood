@@ -20,19 +20,19 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($time_slots as $time_slots)
+        @foreach ($time_slots as $time_slot)
         <tr>
-            <td>{{ $time_slots->name }}</td>
-            <td>{{ $time_slots->start_time }}</td>
-            <td>{{ $time_slots->end_time }}</td>
+            <td>{{ $time_slot->name }}</td>
+            <td>{{ $time_slot->start_time }}</td>
+            <td>{{ $time_slot->end_time }}</td>
             <td>
-                <a href="{{ route('admin.time_slots.show', $time_slots->id) }}" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
-                <a href="{{ route('admin.time_slots.edit', $time_slots->id) }}" title="Modifica"><i class="fa-solid fa-pen"></i></a>
-                <form action="{{route('admin.time_slots.destroy', $time_slots->id)}}" method="POST" class="d-inline-block">
+                <a href="{{ route('admin.time_slots.show', $time_slot->id) }}" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
+                <a href="{{ route('admin.time_slots.edit', $time_slot->id) }}" title="Modifica"><i class="fa-solid fa-pen"></i></a>
+                <form action="{{route('admin.time_slots.destroy', $time_slot->id)}}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="delete-button border-0 bg-transparent" title="Elimina" 
-                    data-item-title="{{ $time_slots->author }}" >
+                    data-item-title="{{ $time_slot->author }}" >
                       <i class="fa-solid fa-trash"></i>
                     </button>
                 </form>
@@ -44,5 +44,3 @@
 </div>
 @include('partials.modal-delete')
 @endsection
-
-

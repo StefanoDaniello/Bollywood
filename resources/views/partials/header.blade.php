@@ -25,6 +25,9 @@
                     <li class="nav-item @if(request()->is('admin/reviews')) active @endif">
                         <a class="nav-link @if(request()->is('admin/reviews')) text-primary fw-bold @endif" href="{{url('admin/reviews') }}">{{ __('Reviews') }}</a>
                     </li>
+                    <li class="nav-item @if(request()->is('admin/time_slots')) active @endif">
+                        <a class="nav-link @if(request()->is('admin/time_slots')) text-primary fw-bold @endif" href="{{url('admin/time_slots') }}">{{ __('Time slots') }}</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
