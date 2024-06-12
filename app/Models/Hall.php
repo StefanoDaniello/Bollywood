@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\hall_movie;
+use App\Models\HallMovie;
 class Hall extends Model
 {
     use HasFactory;
@@ -16,6 +16,6 @@ class Hall extends Model
         return $this->belongsToMany(Movie::class)->withTimestamps();
     }
     public function hall_movie(){
-        return $this->hasMany(hall_movie::class)->withTimestamps();
+        return $this->hasMany(HallMovie::class)->withTimestamps();
     }
 }

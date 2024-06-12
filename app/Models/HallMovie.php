@@ -8,9 +8,11 @@ use App\Models\Hall;
 use App\Models\Movie;
 use App\Models\Time_Slot;
 
-class hall_movie extends Model
+class HallMovie extends Model
 {
     use HasFactory;
+
+    protected $table = 'hall_movie';
 
     protected $fillable = ['hall_id', 'movie_id', 'date', 'price_ticket', 'time_slot_id'];	
     public function time_slots(){

@@ -2,11 +2,11 @@
 @section('title', 'time_slots')
 
 @section('content')
-<div class="container m-4 m-auto" id="halls_table">
+<div class="container m-4 m-auto" id="time_slots">
 
 <div class="d-flex justify-content-end my-3">
 
-    <button class="btn btn-primary"><a href="{{ route('admin.time_slots.create') }}" class="text-white">Create new time_slots</a></button>
+    <button class="btn btn-primary"><a href="{{ route('admin.time_slots.create') }}" class="text-white">Create new time_slot</a></button>
 
 </div>
 
@@ -33,7 +33,7 @@
                     @method('DELETE')
                     <button type="submit" class="delete-button border-0 bg-transparent" title="Elimina" 
                     data-item-title="{{ $time_slot->author }}" >
-                      <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-trash"></i>
                     </button>
                 </form>
             </td>

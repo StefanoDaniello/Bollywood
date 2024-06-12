@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HallController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\TimeSlotController;
+use App\Http\Controllers\Admin\HallMovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::resource('movies', MovieController::class);
     Route::resource('reviews', ReviewController::class);
     Route::resource('time_slots', TimeSlotController::class);
+    Route::resource('halls_movies', HallMovieController::class);
 });
 
 Route::middleware('auth')->group(function () {

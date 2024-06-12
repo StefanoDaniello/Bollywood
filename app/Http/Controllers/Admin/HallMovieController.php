@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\hall_movie;
+use App\Models\Movie;
+use App\Models\Hall;
+use App\Models\Time_Slot;
+
+use App\Models\HallMovie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,7 +17,9 @@ class HallMovieController extends Controller
      */
     public function index()
     {
-        //
+        // dd(HallMovie::all());
+        $halls_movies = HallMovie::all();
+        return view('admin.halls_movies.index', compact('halls_movies'));
     }
 
     /**
@@ -35,7 +41,7 @@ class HallMovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(hall_movie $hall_movie)
+    public function show(HallMovie $HallMovie)
     {
         //
     }
@@ -43,7 +49,7 @@ class HallMovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(hall_movie $hall_movie)
+    public function edit(HallMovie $HallMovie)
     {
         //
     }
@@ -51,7 +57,7 @@ class HallMovieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, hall_movie $hall_movie)
+    public function update(Request $request, HallMovie $HallMovie)
     {
         //
     }
@@ -59,7 +65,7 @@ class HallMovieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(hall_movie $hall_movie)
+    public function destroy(HallMovie $HallMovie)
     {
         //
     }
