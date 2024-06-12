@@ -20,7 +20,7 @@
                 <select name="hall" id="hall" class="form-control @error('hall') is-invalid @enderror">
                     <option value="">Select Hall</option>
                 @foreach ($halls as $hall)
-                    <option value="{{$hall->id}}" {{ $hall->id == old('hall') ? 'selected' : '' }}>{{$hall->title}}</option>
+                    <option value="{{$hall->id}}" {{ $hall->id == old('hall') ? 'selected' : '' }}>{{$hall->name}}</option>
                 @endforeach
                 </select>
                 @error('category_id')
@@ -46,9 +46,9 @@
             <div class="mb-3">
                 <label for="time_slot_id" class="form-label">Select Time-Slot</label>
                 <select name="time_slot_id" id="time_slot_id" class="form-control @error('time_slot_id') is-invalid @enderror">
-                    <option value="">Select Movie</option>
-                @foreach ($movies as $movie)
-                    <option value="{{$movie->id}}" {{ $movie->id == old('time_slot_id') ? 'selected' : '' }}>{{$movie->title}}</option>
+                    <option value="">Select Time-Slot</option>
+                @foreach ($time_slots as $time_slot)
+                    <option value="{{$time_slot->id}}" {{ $time_slot->id == old('time_slot_id') ? 'selected' : '' }}>{{$time_slot->name}}</option>
                 @endforeach
                 </select>
                 @error('category_id')
