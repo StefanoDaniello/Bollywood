@@ -1,17 +1,17 @@
 @extends('layouts.admin')
-@section('title', 'Reviews')
+@section('title', 'time_slots')
 
 @section('content')  
 <div class="container m-auto">
     
 
     <div class="d-flex align-items-center mt-3">
-        <a href="{{ route('admin.reviews.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="{{ route('admin.time_slots.index') }}" class="btn btn-primary "><i><i class="fa-solid fa-arrow-left"></i></a>
         <h1 class="mx-3">Create</h1>
     </div>
 
     
-        <form action="{{route('admin.reviews.store')}}" method="POST" >
+        <form action="{{route('admin.time_slots.store')}}" method="POST" >
             @csrf
             <div class="mb-3">
                 <label for="author" class="form-label">Author</label>

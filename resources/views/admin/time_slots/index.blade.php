@@ -13,9 +13,9 @@
 <table class="table table-dark table-striped">
     <thead>
         <tr>
-            <th>Autore</th>
-            <th>Contenuto</th>
-            <th>Voto</th>
+            <th>Nome</th>
+            <th>Start Time</th>
+            <th>End Time</th>
             <th>Actions</th>
         </tr>
     </thead>
