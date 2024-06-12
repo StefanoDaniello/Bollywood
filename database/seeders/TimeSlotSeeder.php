@@ -13,13 +13,13 @@ class TimeSlotSeeder extends Seeder
      */
     public function run(): void
     {
-        $time_solts = config('time_slots_db.time_slots');
-        foreach ($time_solts as $time_solt) {
-            $new_time_solt = new Time_Slot();
-            $new_time_solt->name =   $time_solt["name"];
-            $new_time_solt->start_time =  $time_solt["start_time"];
-            $new_time_solt->end_time =   $time_solt['end_time'];
-            $new_time_solt->save();
+        $time_slots = config('time_slots_db.time_slots');
+        foreach ($time_slots as $time_slot) {
+            $new_time_slot = new Time_Slot();
+            $new_time_slot->name =   $time_slot["name"];
+            $new_time_slot->start_time =  $time_slot["start_time"];
+            $new_time_slot->end_time =   $time_slot['end_time'];
+            $new_time_slot->save();
         }
     }
 }

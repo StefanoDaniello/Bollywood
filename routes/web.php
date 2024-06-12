@@ -3,11 +3,11 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HallController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\TimeSlotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +33,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::resource('halls', HallController::class);
     Route::resource('movies', MovieController::class);
     Route::resource('reviews', ReviewController::class);
+    Route::resource('time_slots', TimeSlotController::class);
 });
 
 Route::middleware('auth')->group(function () {
