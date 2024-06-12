@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Movie;
 use App\Models\Hall;
-use App\Models\Time_Slot;
+use App\Models\TimeSlot;
 
 use App\Models\HallMovie;
 use Illuminate\Http\Request;

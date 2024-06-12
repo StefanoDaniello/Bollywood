@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\controller;
-use App\Models\Time_Slot;
+use App\Models\TimeSlot;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class TimeSlotController extends Controller
      */
     public function index()
     {
-        $time_slots = Time_Slot::all();
+        $time_slots = TimeSlot::all();
         return view('admin.time_slots.index', compact('time_slots'));
     }
 
@@ -33,14 +33,14 @@ class TimeSlotController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        $newTime_Slot = Time_Slot::create($form_data);
+        $newTime_Slot = TimeSlot::create($form_data);
         return redirect()->route('admin.time_slots.show', $newTime_Slot->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Time_Slot $time_Slot)
+    public function show(TimeSlot $time_Slot)
     {
         return view('admin.time_slots.show', compact('time_Slot'));
     }
@@ -48,7 +48,7 @@ class TimeSlotController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Time_Slot $time_Slot)
+    public function edit(TimeSlot $time_Slot)
     {
         //
     }
@@ -56,7 +56,7 @@ class TimeSlotController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Time_Slot $time_Slot)
+    public function update(Request $request, TimeSlot $time_Slot)
     {
         //
     }
@@ -64,7 +64,7 @@ class TimeSlotController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Time_Slot $time_Slot)
+    public function destroy(TimeSlot $time_Slot)
     {
         //
     }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Time_Slot;
+use App\Models\TimeSlot;
 
 class TimeSlotSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class TimeSlotSeeder extends Seeder
     {
         $time_slots = config('time_slots_db.time_slots');
         foreach ($time_slots as $time_slot) {
-            $new_time_slot = new Time_Slot();
+            $new_time_slot = new TimeSlot();
             $new_time_slot->name =   $time_slot["name"];
             $new_time_slot->start_time =  $time_slot["start_time"];
             $new_time_slot->end_time =   $time_slot['end_time'];

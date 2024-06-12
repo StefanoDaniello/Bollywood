@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\HallMovie;
-class Time_Slot extends Model
+class TimeSlot extends Model
 {
     use HasFactory;
 
