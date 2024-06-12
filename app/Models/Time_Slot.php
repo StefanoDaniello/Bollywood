@@ -10,4 +10,8 @@ class Time_Slot extends Model
     use HasFactory;
 
     protected $fillable = ['name','start_time', 'end_time'];
+    public function hall_movie(){
+        return $this->hasMany(hall_movie::class);
+    }
+
 }
