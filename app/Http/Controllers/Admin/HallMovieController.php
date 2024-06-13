@@ -27,7 +27,10 @@ class HallMovieController extends Controller
      */
     public function create()
     {
-        //
+        $movies = Movie::all();
+        $halls = Hall::all();
+        $time_slots = TimeSlot::all();
+        return view('admin.halls_movies.create', compact('movies', 'halls', 'time_slots'));
     }
 
     /**
@@ -35,7 +38,9 @@ class HallMovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $newHallMovie = HallMovie::create($form_data);
+        return redirect()->route('admin.halls_movies.show', $newHallMovie->id);
     }
 
     /**
@@ -43,7 +48,7 @@ class HallMovieController extends Controller
      */
     public function show(HallMovie $HallMovie)
     {
-        //
+        return view('admin.halls_movies.show', compact('HallMovie'));
     }
 
     /**
@@ -51,7 +56,10 @@ class HallMovieController extends Controller
      */
     public function edit(HallMovie $HallMovie)
     {
-        //
+        $movies = Movie::all();
+        $halls = Hall::all();
+        $time_slots = TimeSlot::all();
+        return view('admin.halls_movies.edit', compact('HallMovie', 'movies', 'halls', 'time_slots'));
     }
 
     /**
@@ -59,7 +67,9 @@ class HallMovieController extends Controller
      */
     public function update(Request $request, HallMovie $HallMovie)
     {
-        //
+        $form_data = $request->all();
+        $HallMovie->update($form_data);
+        return redirect()->route('admin.halls_movies.show', $HallMovie->id);
     }
 
     /**
@@ -67,6 +77,7 @@ class HallMovieController extends Controller
      */
     public function destroy(HallMovie $HallMovie)
     {
-        //
+        $HallMovie->delete();
+        return redirect()->route('admin.halls_movies.index');
     }
 }
