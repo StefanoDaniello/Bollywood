@@ -13,7 +13,8 @@ class HallMovieController extends Controller
         $halls_movies = HallMovie::all();
         // dd($halls_movies);
         return response()->json([
-            'success' => true,
+            'status' => 'success',
+            'messsage'=> 'Halls and Movies',
             'results' => $halls_movies
         ]);
     }
@@ -23,14 +24,15 @@ class HallMovieController extends Controller
         $hall_movie = HallMovie::where('id', $id)->with('movie', 'hall', 'time_slots')->first();
         if($hall_movie){
             return response()->json([
-                'success'=> true,
+               'status' => 'success',
+                'message' => 'OK',
                 'results' => $hall_movie
-            ]);
+            ],200);
         } else {
             return response()->json([
-                'success' => false,
-                'results' => 'Post not found'
-            ]);
+                'status' => 'error',	
+                'message' => 'Error'
+            ],404);
         }
     }
 }
