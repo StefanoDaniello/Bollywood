@@ -8,12 +8,19 @@
     <div class="container d-flex justify-content-center m-4">
 
       <div class="card" >
-          <img src="https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp" class="card-img-top" alt="{{ $time_slot->name }}"> 
+          <img src="https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp" class="card-img-top"> 
           <div class="card-body">
-            <h5 class="card-title">{{ $time_slot->author }}</h5>
-            <p class="card-text"> Colore Sala: {{ $time_slot->content}}</p>
-            <div>Voto: {{ $time_slot->rating }} </div>
-            <a href="{{ route('admin.time_slots.edit', $time_slot->id) }}" class="btn btn-primary mt-3">Edit</a>
+            <h5 class="card-title">{{ $HallMovie->movie_id}}</h5>
+            <p class="card-text"> {{ $HallMovie->hall_id}}</p>
+            <p class="card-text"> {{ $HallMovie->time_slot_id}}</p>
+            <p class="card-text"> {{ $HallMovie->date}}</p>
+            <p class="card-text">{{ $HallMovie->price_ticket}}</p>
+            @if($HallMovie->halls)
+                {{-- $post->tags esso e un array di tags--}}
+                @foreach ($HallMovie->halls as $hall)
+                    <p>Sala: {{$hall->name}}</p>
+                @endforeach
+              @endif
           </div>
       </div>
   </div>
