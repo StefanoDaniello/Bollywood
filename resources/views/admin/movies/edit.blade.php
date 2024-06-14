@@ -82,33 +82,12 @@
 
     <div class="mb-3">
         <label for="duration" class="form-label">duration</label>
-        <input type="time" step="2" class="form-control @error('duration') is-invalid @enderror" id="duration"
+        <input type="time" class="form-control @error('duration') is-invalid @enderror" id="duration"
             name="duration" value="{{ old('duration', $movie->duration) }}"> 
         @error('duration')
             <div class ="invalid-feedback">{{$errors->first('duration')}}</div>
         @enderror 
-    </div>
-    
-    <div class="form-group">
-        <p>Tag:</p>
-        @foreach ($halls as $hall)
-            <div>
-                <input class="form-check-input" type="checkbox" value="{{$hall->id}}"  name="halls[]"
-                {{-- per far si che i tag selezionati vengano salvati utilizzo 
-                    un array dove veranno inseriti i valori di essi,
-                    e tramite old verranno recuperati quando c'e un errore--}}
-                {{$movie->halls->contains($hall->id) ? 'checked' : ''}}>
-                <label class="form-check-label" for="">
-                    {{$hall->name}}
-                </label>
-            </div>
-        @endforeach
-        @error('halls')
-        <div class="alert alert-danger">{{$message}}</div>
-        @enderror
-    </div>
-
-    
+    </div>    
     <div class="mb-3">
         <button type="submit" class="btn btn-primary text-white">Modifica</button>
         <button type="reset"  class="btn btn-danger mx-4">Svuota campi</button>
