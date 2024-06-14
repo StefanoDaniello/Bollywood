@@ -82,7 +82,7 @@
 
     <div class="mb-3">
         <label for="duration" class="form-label">duration</label>
-        <input type="time" step="2" class="form-control @error('duration') is-invalid @enderror" id="duration"
+        <input type="time" class="form-control @error('duration') is-invalid @enderror" id="duration"
             name="duration" value="{{ old('duration', $movie->duration) }}"> 
         @error('duration')
             <div class ="invalid-feedback">{{$errors->first('duration')}}</div>
