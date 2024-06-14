@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Hall;
+use App\Models\HallMovie;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreHallRequest;
 use App\Http\Requests\UpdateHallRequest;
@@ -22,9 +24,9 @@ class HallController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Hall $hall)
     {
-        return view('admin.halls.create');
+        return view('admin.halls.create', compact('hall'));
     }
 
     /**
@@ -42,7 +44,8 @@ class HallController extends Controller
      */
     public function show(Hall $hall)
     {
-        return view('admin.halls.show', compact('hall'));
+        $hall_movie = HallMovie::where('hall_id', $hall->id)->get();
+        return view('admin.halls.show', compact('hall', 'hall_movie'));
     }
 
     /**

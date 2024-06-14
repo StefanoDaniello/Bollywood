@@ -37,18 +37,23 @@ class HallMovieController extends Controller
      */
     public function store(Request $request)
     {
-        $halls = Hall::all();
+        $hall = Hall::where('id', $request->hall_id)->first();
         $form_data = $request->all();
-       
-        // $ticket_price = 'price_ticket';
-        dd($halls->seats_num);
+        // dd($form_data['hall_id']);
+        //dd($hall);
+        //$price_ticket = 0;
+        //$form_data->$price_ticket;
+        if($hall->seats_num > 50){
+            $ticket_price = $hall->base_price + 2;
+            $form_data['price_ticket'] = $ticket_price;
+        }
+        if($hall->isense == 1){
+            $form_data['price_ticket'] = $form_data['price_ticket'] + 3;
+            //$ticket_price = $hall->$form_data['price_ticket'] + 3;
+            //$form_data['price_ticket'] = $ticket_price;
+            //dd($form_data);
 
-        // if($halls->seats_num > 50){
-        //     $form_data->$ticket_price = $halls->base_price + 2;
-        // }
-        // if($halls->isense == 1){
-        //     $form_data->$ticket_price = $form_data->$ticket_price + 3;
-        // }
+        }
         $newHallMovie = HallMovie::create($form_data);
         return redirect()->route('admin.halls_movies.index', $newHallMovie->id);
         
@@ -80,7 +85,17 @@ class HallMovieController extends Controller
      */
     public function update(Request $request, HallMovie $halls_movie)
     {
+        $hall = Hall::where('id', $request->hall_id)->first();
         $form_data = $request->all();
+        if($hall->seats_num > 50){
+            $ticket_price = $hall->base_price + 2;
+            $form_data['price_ticket'] = $ticket_price;
+        } else {
+            $form_data['price_ticket'] = $hall->base_price;
+        }
+        if($hall->isense == 1){
+            $form_data['price_ticket'] = $form_data['price_ticket'] + 3;
+        }
         $halls_movie->update($form_data);
         return redirect()->route('admin.halls_movies.show', $halls_movie->id);
     }

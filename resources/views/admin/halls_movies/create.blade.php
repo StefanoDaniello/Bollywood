@@ -64,17 +64,7 @@
                     <div class ="invalid-feedback">{{$errors->first('date')}}</div>
                 @enderror 
             </div>
-
-            <div class="mb-3">
-                <label for="price_ticket" class="form-label">Prezzo biglietto</label>
-                <input type="text" class="form-control @error('price_ticket') is-invalid @enderror" id="price_ticket"
-                    name="price_ticket" value="{{ old('price_ticket') }}">
-                @error('price_ticket')
-                    <div class ="invalid-feedback">{{$errors->first('price_ticket')}}</div>
-                @enderror 
-            </div>
-
-            
+                        
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary text-white">Create</button>
                 <button type="reset"  class="btn btn-danger mx-4">Reset</button>
