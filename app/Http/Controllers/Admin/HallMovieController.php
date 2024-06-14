@@ -17,7 +17,6 @@ class HallMovieController extends Controller
      */
     public function index()
     {
-        // dd(HallMovie::all());
         $halls_movies = HallMovie::all();
         return view('admin.halls_movies.index', compact('halls_movies'));
     }
@@ -40,44 +39,46 @@ class HallMovieController extends Controller
     {
         $form_data = $request->all();
         $newHallMovie = HallMovie::create($form_data);
-        return redirect()->route('admin.halls_movies.show', $newHallMovie->id);
+        return redirect()->route('admin.halls_movies.index', $newHallMovie->id);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(HallMovie $HallMovie)
-    {
-        return view('admin.halls_movies.show', compact('HallMovie'));
-    }
+     /**
+      * Display the specified resource.
+      */
+     public function show(HallMovie $halls_movie)
+
+     {   
+        return view('admin.halls_movies.show', compact('halls_movie'));
+     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HallMovie $HallMovie)
+    public function edit(HallMovie $hall_movie)
     {
         $movies = Movie::all();
         $halls = Hall::all();
         $time_slots = TimeSlot::all();
-        return view('admin.halls_movies.edit', compact('HallMovie', 'movies', 'halls', 'time_slots'));
+        return view('admin.halls_movies.edit', compact('hall_movie', 'movies',
+        'halls', 'time_slots'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, HallMovie $HallMovie)
+    public function update(Request $request, HallMovie $hall_movie)
     {
         $form_data = $request->all();
-        $HallMovie->update($form_data);
-        return redirect()->route('admin.halls_movies.show', $HallMovie->id);
+        $hall_movie->update($form_data);
+        return redirect()->route('admin.halls_movies.show', $hall_movie->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HallMovie $HallMovie)
+    public function destroy(HallMovie $hall_movie)
     {
-        $HallMovie->delete();
+        $hall_movie->delete();
         return redirect()->route('admin.halls_movies.index');
     }
 }

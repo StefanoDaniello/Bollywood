@@ -17,7 +17,7 @@
         {{-- SELECT HALL --}}
             <div class="mb-3">
                 <label for="hall" class="form-label">Select Hall</label>
-                <select name="hall" id="hall" class="form-control @error('hall') is-invalid @enderror">
+                <select name="hall_id" id="hall_id" class="form-control @error('hall_id') is-invalid @enderror">
                     <option value="">Select Hall</option>
                 @foreach ($halls as $hall)
                     <option value="{{$hall->id}}" {{ $hall->id == old('hall') ? 'selected' : '' }}>{{$hall->name}}</option>

@@ -10,17 +10,12 @@
       <div class="card" >
           <img src="https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp" class="card-img-top"> 
           <div class="card-body">
-            <h5 class="card-title">{{ $HallMovie->movie_id}}</h5>
-            <p class="card-text"> {{ $HallMovie->hall_id}}</p>
-            <p class="card-text"> {{ $HallMovie->time_slot_id}}</p>
-            <p class="card-text"> {{ $HallMovie->date}}</p>
-            <p class="card-text">{{ $HallMovie->price_ticket}}</p>
-            @if($HallMovie->halls)
-                {{-- $post->tags esso e un array di tags--}}
-                @foreach ($HallMovie->halls as $hall)
-                    <p>Sala: {{$hall->name}}</p>
-                @endforeach
-              @endif
+            
+            <h5 class="card-title">{{$halls_movie->movie->title}}</h5>
+            <p class="card-text"> {{ $halls_movie->hall->name}}</p>
+            <p class="card-text"> {{ $halls_movie->time_slot->name}}</p>
+            <p class="card-text"> {{ $halls_movie->date}}</p>
+            <p class="card-text">{{  $halls_movie->price_ticket}}</p>
           </div>
       </div>
   </div>
