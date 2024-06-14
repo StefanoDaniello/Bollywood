@@ -9,14 +9,23 @@ $fa-font-path: "../webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-.fa-eye:hover{
-    color: cornflowerblue;
+.fa-eye{
+    color: lightgrey;
+    &:hover{
+        color: cornflowerblue;
+    }
 }
-.fa-pen:hover{
-    color: green;
+.fa-pen{
+    color: lightgrey;
+    &:hover{
+        color: green;
+    }
 }
-.fa-trash:hover{
-    color: red;
+.fa-trash{
+    color: lightgrey;
+    &:hover{
+        color: red;
+    }
 }
 
 a{
