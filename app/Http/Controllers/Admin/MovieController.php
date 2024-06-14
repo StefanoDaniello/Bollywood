@@ -42,10 +42,7 @@ class MovieController extends Controller
             $form_data['cover_image'] = $path;
         }
         $newMovie = Movie::create($form_data);
-        // if($request->has('halls')){ 
-        //     //con attach passiamo l' array dei tag 
-        //     $newMovie->halls()->attach($request->halls);
-        // }
+        
 
         return redirect()->route('admin.movies.show', $newMovie->id);
     }

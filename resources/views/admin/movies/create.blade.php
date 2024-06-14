@@ -86,10 +86,6 @@
                 <div class ="invalid-feedback">{{$errors->first('duration')}}</div>
             @enderror 
         </div>
-
-        
-
-
         
         <div class="mb-3">
             <button type="submit" class="btn btn-primary text-white">Create</button>
