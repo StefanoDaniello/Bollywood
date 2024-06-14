@@ -35,7 +35,6 @@ class UpdateMovieRequest extends FormRequest
             'trailer' => 'nullable|max:255',
             'language' => 'required|max:100',
             'duration' => 'required',
-            'halls' => 'required',
         ];
     }
 
@@ -52,7 +51,6 @@ class UpdateMovieRequest extends FormRequest
             'trailer.max' => 'Il trailer deve essere lungo massimo :max caratteri!',
             'language.max' => 'Il linguaggio è obbligatorio!',
             'duration.required' => 'La durata è obbligatoria!',
-            'halls.required' => 'Le sale sono obbligatorie!',
         ];
     }
 }
