@@ -23,8 +23,7 @@ class TimeSlotController extends Controller
      */
     public function create()
     {
-        $movies = Movie::all();
-        return view('admin.time_slots.create', compact('movies'));
+        return view('admin.time_slots.create');
     }
 
     /**
@@ -33,39 +32,42 @@ class TimeSlotController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        $newTime_Slot = TimeSlot::create($form_data);
-        return redirect()->route('admin.time_slots.show', $newTime_Slot->id);
+        $newTime_slot = TimeSlot::create($form_data);
+        return redirect()->route('admin.time_slots.show', $newTime_slot->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TimeSlot $time_Slot)
+    public function show(TimeSlot $time_slot)
     {
-        return view('admin.time_slots.show', compact('time_Slot'));
+        return view('admin.time_slots.show', compact('time_slot'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TimeSlot $time_Slot)
+    public function edit(TimeSlot $time_slot)
     {
-        //
+        return view('admin.time_slots.edit', compact('time_slot'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TimeSlot $time_Slot)
+    public function update(Request $request, TimeSlot $time_slot)
     {
-        //
+        $from_data = $request->all();
+        $time_slot->update($from_data);
+        return redirect()->route('admin.time_slots.show', $time_slot->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TimeSlot $time_Slot)
+    public function destroy(TimeSlot $time_slot)
     {
-        //
+        $time_slot->delete();
+        return redirect()->route('admin.time_slots.index');
     }
 }
