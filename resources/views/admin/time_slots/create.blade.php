@@ -24,7 +24,7 @@
         
         <div class="mb-3">
             <label for="start_time" class="form-label">Start Time</label>
-            <input type="time" step="2" class="form-control @error('start_time') is-invalid @enderror" id="start_time" name="start_time"
+            <input type="time"  class="form-control @error('start_time') is-invalid @enderror" id="start_time" name="start_time"
                 value="{{ old('start_time') }}" >
             @error('start_time')
                 <div class ="alert alert-danger">{{$errors->first('start_time')}}</div>
@@ -33,7 +33,7 @@
 
         <div class="mb-3">
             <label for="end_time" class="form-label">End Time</label>
-            <input type="time" step="2" class="form-control @error('end_time') is-invalid @enderror" id="end_time" name="end_time"
+            <input type="time"  class="form-control @error('end_time') is-invalid @enderror" id="end_time" name="end_time"
                 value="{{ old('end_time') }}" >
             @error('end_time')
                 <div class ="alert alert-danger">{{$errors->first('end_time')}}</div>
