@@ -20,19 +20,19 @@ class UpdateHallRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => [
                 'required',
                 'max:255',
-                Rule::unique('halls')->ignore($this->hall->id),
+                Rule::unique('halls')->ignore($this->hall->id)
             ],
-            'color' => 'nullable|max:50',
+            'color' => 'required|max:50',
             'seats_num' => 'required',
+            'base_price' => 'required',
             'isense' => 'required',
-            'availability' => 'required',
-            'base_price' => 'required'
+            'availability' => 'required'
         ];
     }
 

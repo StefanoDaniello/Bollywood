@@ -37,40 +37,24 @@
             @enderror 
         </div>
         <div class="mb-3">
-            <div>
-                iSense technology?
-            </div>
-
-            @if($hall->isense)
-                <label for="isense" class="form-label">Yes</label>
-                <input type="checkbox" id="isense" name="isense" value="1"  checked/>
-                <label for="isense" class="form-label">No</label>
-                <input type="checkbox" id="isense" name="isense" value="0" />
-            @else
-                <label for="isense" class="form-label">Yes</label>
-                <input type="checkbox" id="isense" name="isense" value="1" />
-                <label for="isense" class="form-label">No</label>
-                <input type="checkbox" id="isense" name="isense" value="0" checked />
-            @endif
+            <div>iSense technology?</div>
+            <label class="form-label">
+                <input type="radio" name="isense" value="1" @if($hall->isense) checked @endif> Yes
+            </label>
+            <label class="form-label">
+                <input type="radio" name="isense" value="0" @if(!$hall->isense) checked @endif> No
+            </label>
         </div>
         <div class="mb-3">
-            <div class="mb-3">
-                <div>
-                    Available?
-                </div>
-                @if($hall->availability)
-                <label for="isense" class="form-label">Yes</label>
-                <input type="checkbox" id="isense" name="isense" value="1" checked/>
-                <label for="isense" class="form-label">No</label>
-                <input type="checkbox" id="isense" name="isense" value="0"/>
-                @else
-                <label for="isense" class="form-label">Yes</label>
-                <input type="checkbox" id="isense" name="isense" value="1"/>
-                <label for="isense" class="form-label">No</label>
-                <input type="checkbox" id="isense" name="isense" value="0" checked />
-                @endif
-            </div>
+            <div>Available?</div>
+            <label class="form-label">
+                <input type="radio" name="availability" value="1" @if($hall->availability) checked @endif> Yes
+            </label>
+            <label class="form-label">
+                <input type="radio" name="availability" value="0" @if(!$hall->availability) checked @endif> No
+            </label>
         </div>
+        
         <div class="mb-3">
             <label for="base_price" class="form-label ">base_price</label>
             <input type="number" class="form-control w-25"  min="1" step="any" id="base_price" name="base_price" 
