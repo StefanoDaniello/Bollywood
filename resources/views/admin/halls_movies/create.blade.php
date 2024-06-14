@@ -51,10 +51,29 @@
                     <option value="{{$time_slot->id}}" {{ $time_slot->id == old('time_slot_id') ? 'selected' : '' }}>{{$time_slot->name}}</option>
                 @endforeach
                 </select>
-                @error('category_id')
+                @error('time_slot_id')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Giorno di Proiezione</label>
+                <input type="date" class="form-control"  min="1" step="any" id="date" name="date" 
+                value="{{ old('date')}}"/>
+                @error('release_date')
+                    <div class ="invalid-feedback">{{$errors->first('date')}}</div>
+                @enderror 
+            </div>
+
+            <div class="mb-3">
+                <label for="price_ticket" class="form-label">Prezzo biglietto</label>
+                <input type="text" class="form-control @error('price_ticket') is-invalid @enderror" id="price_ticket"
+                    name="price_ticket" value="{{ old('price_ticket') }}">
+                @error('price_ticket')
+                    <div class ="invalid-feedback">{{$errors->first('price_ticket')}}</div>
+                @enderror 
+            </div>
+
             
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary text-white">Create</button>

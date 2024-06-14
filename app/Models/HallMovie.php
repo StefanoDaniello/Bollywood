@@ -14,7 +14,8 @@ class HallMovie extends Pivot
     use HasFactory;
 
     protected $table = 'hall_movie';
-    protected $fillable = ['hall_id', 'movie_id', 'date', 'price_ticket', 'time_slot_id'];	
+    protected $fillable = ['hall_id', 'movie_id', 'date', 
+    'price_ticket', 'time_slot_id'];
     public function time_slot(){
         return $this->belongsTo(TimeSlot::class);
     }
