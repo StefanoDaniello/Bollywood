@@ -10,58 +10,40 @@
         <h1 class="mx-3">Create</h1>
     </div>
 
-    
-        <form action="{{route('admin.time_slots.store')}}" method="POST" >
-            @csrf
-            <div class="mb-3">
-                <label for="author" class="form-label">Author</label>
-                <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" name="author"
-                    value="{{ old('author') }}" >
-               @error('author')
-                    <div class ="alert alert-danger">{{$errors->first('author')}}</div>
-                @enderror 
-               <div id="authorHelp" class="form-text text-white">Inserire minimo 3 caratteri e massimo 200</div> 
-            </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Content</label>
-                <textarea class="form-control @error('content') is-invalid @enderror" id="content"
-                name="content">{{ old('content') }}</textarea>
-                   @error('content')
-                        <div class ="alert alert-danger">{{$errors->first('content')}}</div>
-                    @enderror  
-            </div>
+    <form action="{{route('admin.time_slots.store')}}" method="POST" >
+        @csrf
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                value="{{ old('name') }}" >
+            @error('name')
+                <div class ="alert alert-danger">{{$errors->first('name')}}</div>
+            @enderror  
+            <div id="nameHelp" class="form-text text-white">Inserire minimo 3 caratteri e massimo 200</div> 
+        </div>
+        
+        <div class="mb-3">
+            <label for="start_time" class="form-label">Start Time</label>
+            <input type="time" step="2" class="form-control @error('start_time') is-invalid @enderror" id="start_time" name="start_time"
+                value="{{ old('start_time') }}" >
+            @error('start_time')
+                <div class ="alert alert-danger">{{$errors->first('start_time')}}</div>
+            @enderror  
+        </div> 
 
-
-
-            <div class="mb-3">
-                <label for="movie_id" class="form-label">Select Movie</label>
-                <select name="movie_id" id="movie_id" class="form-control @error('movie_id') is-invalid @enderror">
-                    <option value="">Select Movie</option>
-                  @foreach ($movies as $movie)
-                      <option value="{{$movie->id}}" {{ $movie->id == old('movie_id') ? 'selected' : '' }}>{{$movie->title}}</option>
-                  @endforeach
-                </select>
-                @error('category_id')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="rating" class="form-label">Rating</label>
-                <input type="number" min="1"max="10" step="0.1" class="form-control @error('rating') is-invalid @enderror" id="rating"
-                    name="rating" value="{{ old('rating') }}">
-               @error('rating')
-                    <div class ="alert alert-danger">{{$errors->first('rating')}}</div>
-                @enderror 
-            </div>
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary text-white">Create</button>
-                <button type="reset"  class="btn btn-danger mx-4">Reset</button>
-    
-            </div>
-            
-        </form>
-
+        <div class="mb-3">
+            <label for="end_time" class="form-label">End Time</label>
+            <input type="time" step="2" class="form-control @error('end_time') is-invalid @enderror" id="end_time" name="end_time"
+                value="{{ old('end_time') }}" >
+            @error('end_time')
+                <div class ="alert alert-danger">{{$errors->first('end_time')}}</div>
+            @enderror  
+        </div> 
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary text-white">Create</button>
+            <button type="reset"  class="btn btn-danger mx-4">Reset</button>
+        </div>
+    </form>
 </div> 
 
 @endsection
