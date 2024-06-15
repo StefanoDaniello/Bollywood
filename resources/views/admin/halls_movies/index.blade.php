@@ -37,7 +37,7 @@
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="delete-button border-0 bg-transparent" title="Elimina" 
-                    data-item-title="{{ $hall_movie->movie_id }}" >
+                    data-item-title="la proiezione di: {{ $hall_movie->movie->title}}" >
                       <i class="fa-solid fa-trash"></i>
                     </button>
                 </form>

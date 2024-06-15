@@ -32,7 +32,7 @@
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="delete-button border-0 bg-transparent" title="Elimina" 
-                    data-item-title="{{ $time_slot->author }}" >
+                    data-item-title="{{ $time_slot->name }}" >
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </form>
