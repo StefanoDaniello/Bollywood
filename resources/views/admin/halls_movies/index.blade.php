@@ -26,7 +26,7 @@
         <tr>
             <td>{{ $hall_movie->movie->title}}</td>
             <td>{{ $hall_movie->hall->name}}</td>
-            <td>{{ $hall_movie->time_slot_id}}</td>
+            <td>{{ $hall_movie->time_slot->name}}</td>
             <td>{{ $hall_movie->date}}</td>
             <td>{{ $hall_movie->price_ticket}} €</td>
 
