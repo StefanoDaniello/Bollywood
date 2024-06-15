@@ -15,7 +15,7 @@
             <p class="card-text"> {{ $halls_movie->hall->name}}</p>
             <p class="card-text"> {{ $halls_movie->time_slot->name}}</p>
             <p class="card-text"> {{ $halls_movie->date}}</p>
-            <p class="card-text">{{  $halls_movie->price_ticket}}</p>
+            <p class="card-text">{{  $halls_movie->price_ticket}} €</p>
           </div>
       </div>
   </div>

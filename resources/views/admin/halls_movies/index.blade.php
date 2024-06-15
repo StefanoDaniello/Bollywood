@@ -24,11 +24,11 @@
     <tbody>
         @foreach ($halls_movies as $hall_movie)
         <tr>
-            <td>{{ $hall_movie->movie_id}}</td>
-            <td>{{ $hall_movie->hall_id}}</td>
+            <td>{{ $hall_movie->movie->title}}</td>
+            <td>{{ $hall_movie->hall->name}}</td>
             <td>{{ $hall_movie->time_slot_id}}</td>
             <td>{{ $hall_movie->date}}</td>
-            <td>{{ $hall_movie->price_ticket}}</td>
+            <td>{{ $hall_movie->price_ticket}} €</td>
 
             <td>
                 <a href="{{ route('admin.halls_movies.show', $hall_movie->id) }}" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
