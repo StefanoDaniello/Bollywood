@@ -48,11 +48,12 @@ class HallMovieController extends Controller
             $form_data['price_ticket'] = $ticket_price;
         }
         if($hall->isense == 1){
-            $form_data['price_ticket'] = $form_data['price_ticket'] + 3;
+            // $form_data['price_ticket'] = $form_data['price_ticket'] + 3;
+            $ticket_price = $hall->base_price + 3;
+            $form_data['price_ticket'] = $ticket_price;
             //$ticket_price = $hall->$form_data['price_ticket'] + 3;
             //$form_data['price_ticket'] = $ticket_price;
             //dd($form_data);
-
         }
         $newHallMovie = HallMovie::create($form_data);
         return redirect()->route('admin.halls_movies.index', $newHallMovie->id);
