@@ -15,7 +15,7 @@ class HallMovieController extends Controller
         return response()->json([
             'status' => 'success',
             'messsage'=> 'Halls and Movies',
-            'results' => $halls_movies->load('movie', 'hall', 'time_slots')
+            'results' => $halls_movies->load('movie', 'hall', 'time_slot')
         ]);
     }
 
