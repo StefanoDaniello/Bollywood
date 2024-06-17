@@ -9,7 +9,11 @@
     <button class="btn btn-primary"><a href="{{ route('admin.halls_movies.create') }}" class="text-white">Create new halls_movies</a></button>
 
 </div>
-
+@if (session('message'))
+        <div class="alert alert-danger">
+            {{ session('message') }}
+        </div>
+    @endif
 <table class="table table-dark table-striped">
     <thead>
         <tr>

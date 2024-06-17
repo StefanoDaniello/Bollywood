@@ -23,7 +23,7 @@
                     <option value="{{$hall->id}}" {{ $hall->id == old('hall') ? 'selected' : '' }}>{{$hall->name}}</option>
                 @endforeach
                 </select>
-                @error('category_id')
+                @error('hall_id')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -37,7 +37,7 @@
                     <option value="{{$movie->id}}" {{ $movie->id == old('movie_id') ? 'selected' : '' }}>{{$movie->title}}</option>
                 @endforeach
                 </select>
-                @error('category_id')
+                @error('movie_id')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
