@@ -35,6 +35,11 @@ class HallController extends Controller
     public function store(StoreHallRequest $request)
     {
         $form_data = $request->validated();
+        if($form_data['seats_num']>50){
+            $form_data['base_price'] = 10;
+        } else {
+            $form_data['base_price'] = 8;
+        }
         $newHall = Hall::create($form_data);
         return redirect()->route('admin.halls.show', $newHall->id);
     }
@@ -61,7 +66,15 @@ class HallController extends Controller
      */
     public function update(UpdateHallRequest $request, Hall $hall)
     {
+        $HallMovie = HallMovie::all();
         $form_data = $request->validated();
+
+        if($form_data['seats_num']>50){
+            $form_data['base_price'] = 10;
+        } else {
+            $form_data['base_price'] = 8;
+        }
+
         $hall->update($form_data);
         return redirect()->route('admin.halls.show', $hall->id);
     }

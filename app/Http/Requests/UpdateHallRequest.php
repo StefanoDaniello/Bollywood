@@ -30,7 +30,7 @@ class UpdateHallRequest extends FormRequest
             ],
             'color' => 'required|max:50',
             'seats_num' => 'required',
-            'base_price' => 'required',
+            'base_price' => 'nullable',
             'isense' => 'required',
             'availability' => 'required'
         ];

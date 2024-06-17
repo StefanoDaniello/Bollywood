@@ -27,7 +27,7 @@ class StoreHallRequest extends FormRequest
             'seats_num' => 'required',
             'isense' => 'required',
             'availability' => 'required',
-            'base_price' => 'required'
+            'base_price' => 'nullable'
         ];
     }
 

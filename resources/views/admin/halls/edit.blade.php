@@ -54,16 +54,7 @@
                 <input type="radio" name="availability" value="0" @if(!$hall->availability) checked @endif> No
             </label>
         </div>
-        
-        <div class="mb-3">
-            <label for="base_price" class="form-label ">base_price</label>
-            <input type="number" class="form-control w-25"  min="1" step="any" id="base_price" name="base_price" 
-            value="{{ old('base_price', $hall->base_price) }}"/>
-            @error('base_price')
-                <div class ="alert alert-danger">{{$errors->first('seats_num')}}</div>
-            @enderror 
-        </div>
-        
+                
         <div class="mb-3">
             <button type="submit" class="btn btn-primary text-white">Modifica</button>
             <button type="reset"  class="btn btn-danger mx-4">Svuota campi</button>

@@ -9,7 +9,7 @@ return [
             'seats_num' => 100,
             'isense' => 0,
             'availability' => 1,
-            'base_price' => 8.00
+            'base_price' => 10.00
         ],
         [
             'name' => 'Sala_Spielberg',
@@ -17,7 +17,7 @@ return [
             'seats_num' => 120,
             'isense' => 1,
             'availability' => 1,
-            'base_price' => 8.00
+            'base_price' => 10.00
         ],
         [
             'name' => 'Sala_Hitchcock',

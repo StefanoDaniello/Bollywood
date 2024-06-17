@@ -57,19 +57,15 @@ class HallMovieController extends Controller
         //$form_data->$price_ticket;
 
         
-        if($hall->seats_num > 50){
-            $ticket_price = $hall->base_price + 2;
-            $form_data['price_ticket'] = $ticket_price;
+
+
+        if($hall->isense === 1){
+            $ticket_price = $hall->base_price;
+            $form_data['price_ticket'] = $ticket_price + 3;
+            //dd($form_data);
         } else {
             $ticket_price = $hall->base_price;
             $form_data['price_ticket'] = $ticket_price;
-        }
-
-        if($hall->isense === 1){
-            $form_data['price_ticket'] = $form_data['price_ticket'] + 3;
-            //dd($form_data);
-        } else {
-            $form_data['price_ticket'];
         }
         
         if (DB::table('hall_movie')
@@ -114,15 +110,24 @@ class HallMovieController extends Controller
     {
         $hall = Hall::where('id', $request->hall_id)->first();
         $form_data = $request->all();
-        if($hall->seats_num > 50){
-            $ticket_price = $hall->base_price + 2;
-            $form_data['price_ticket'] = $ticket_price;
+
+        if($hall->isense === 1){
+            $ticket_price = $hall->base_price;
+            $form_data['price_ticket'] = $ticket_price + 3;
+            //dd($form_data);
         } else {
-            $form_data['price_ticket'] = $hall->base_price;
+            $ticket_price = $hall->base_price;
+            $form_data['price_ticket'] = $ticket_price;
         }
-        if($hall->isense == 1){
-            $form_data['price_ticket'] = $form_data['price_ticket'] + 3;
-        }
+
+        if (DB::table('hall_movie')
+        ->where('date', $form_data['date'])
+        ->where('time_slot_id', $form_data['time_slot_id'])
+        ->where('hall_id', $form_data['hall_id'])
+        ->exists()) {
+        return redirect()->route('admin.halls_movies.index')->with('message', 'Proiezione gia esistente cambiare la data o la sala!');
+    }
+
         $halls_movie->update($form_data);
         return redirect()->route('admin.halls_movies.show', $halls_movie->id);
     }
