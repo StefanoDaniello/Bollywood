@@ -21,7 +21,9 @@ class HallMovieController extends Controller
 
     public function show($id)
     {
-        $hall_movie = HallMovie::where('id', $id)->with('movie', 'hall', 'time_slots')->first();
+        $hall_movie = HallMovie::where('id', $id)
+        ->with(['movie.reviews', 'hall', 'time_slot'])
+        ->first();
         if($hall_movie){
             return response()->json([
                'status' => 'success',
