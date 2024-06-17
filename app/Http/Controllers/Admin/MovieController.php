@@ -70,12 +70,11 @@ class MovieController extends Controller
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
         $form_data = $request->validated();
-        $movie->update($form_data);
         if ($request->hasFile('cover_image')) {
             $path = Storage::put('movie_images', $request->cover_image);
             $form_data['cover_image'] = $path;
         }
-
+        $movie->update($form_data);
         if($request->has('halls')){
             //con sync passiamo l' array dei tag che veranno aggiunti alla tabella pivot 
             $movie->halls()->sync($request->halls);
