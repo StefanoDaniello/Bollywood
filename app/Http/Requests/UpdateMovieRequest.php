@@ -30,7 +30,7 @@ class UpdateMovieRequest extends FormRequest
             ],
             'original_title' => 'nullable|max:255',
             'overview' => 'nullable|max:1000',
-            'cover_image' => 'nullable|max:255',
+            'cover_image' => 'nullable|image|max:2048',
             'release_date' => 'required',
             'trailer' => 'nullable|max:255',
             'language' => 'required|max:100',
