@@ -8,9 +8,14 @@ use App\Models\HallMovie;
 
 class HallMovieController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $halls_movies = HallMovie::all();
+        if($request->query('data')) {
+            $halls_movies = HallMovie::where('date', $request->query('data'))->get();
+        }else {
+            $halls_movies = HallMovie::all();
+        }      
+        
         // dd($halls_movies);
         return response()->json([
             'status' => 'success',
