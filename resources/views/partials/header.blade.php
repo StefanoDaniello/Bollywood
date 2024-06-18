@@ -13,24 +13,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item @if(request()->is('/')) active @endif">
-                        <a class="nav-link @if(request()->is('/')) text-primary fw-bold @endif" href="{{url('/') }}">{{ __('Home') }}</a>
-                    </li>
-                    <li class="nav-item @if(request()->is('admin/halls')) active @endif">
-                        <a class="nav-link @if(request()->is('admin/halls')) text-primary  fw-bold @endif" href="{{url('admin/halls') }}">{{ __('Sale') }}</a>
-                    </li>
-                    <li class="nav-item @if(request()->is('admin/movies')) active @endif">
-                        <a class="nav-link @if(request()->is('admin/movies')) text-primary fw-bold @endif" href="{{url('admin/movies') }}">{{ __('Movie') }}</a>
-                    </li>
-                    <li class="nav-item @if(request()->is('admin/reviews')) active @endif">
-                        <a class="nav-link @if(request()->is('admin/reviews')) text-primary fw-bold @endif" href="{{url('admin/reviews') }}">{{ __('Reviews') }}</a>
-                    </li>
-                    <li class="nav-item @if(request()->is('admin/time_slots')) active @endif">
-                        <a class="nav-link @if(request()->is('admin/time_slots')) text-primary fw-bold @endif" href="{{url('admin/time_slots') }}">{{ __('Time slots') }}</a>
-                    </li>
-                    <li class="nav-item @if(request()->is('admin/halls_movies')) active @endif">
-                        <a class="nav-link @if(request()->is('admin/halls_movies')) text-primary fw-bold @endif" href="{{url('admin/halls_movies') }}">{{ __('Halls Movies') }}</a>
-                    </li>
+                    @guest
+                        <li class="nav-item @if(request()->is('/')) active @endif">
+                            <a class="nav-link @if(request()->is('/')) text-primary fw-bold @endif" href="{{url('/') }}">{{ __('Home') }}</a>
+                        </li>
+                    @endguest
+                    @auth
+                        <li class="nav-item @if(request()->is('admin/halls')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/halls')) text-primary  fw-bold @endif" href="{{url('admin/halls') }}">{{ __('Sale') }}</a>
+                        </li>
+                        <li class="nav-item @if(request()->is('admin/movies')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/movies')) text-primary fw-bold @endif" href="{{url('admin/movies') }}">{{ __('Movie') }}</a>
+                        </li>
+                        <li class="nav-item @if(request()->is('admin/reviews')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/reviews')) text-primary fw-bold @endif" href="{{url('admin/reviews') }}">{{ __('Reviews') }}</a>
+                        </li>
+                        <li class="nav-item @if(request()->is('admin/time_slots')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/time_slots')) text-primary fw-bold @endif" href="{{url('admin/time_slots') }}">{{ __('Time slots') }}</a>
+                        </li>
+                        <li class="nav-item @if(request()->is('admin/halls_movies')) active @endif">
+                            <a class="nav-link @if(request()->is('admin/halls_movies')) text-primary fw-bold @endif" href="{{url('admin/halls_movies') }}">{{ __('Halls Movies') }}</a>
+                        </li>
+                    @endauth
                 </ul>
 
                 <!-- Right Side Of Navbar -->

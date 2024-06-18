@@ -6,7 +6,7 @@
 
 <div class="d-flex justify-content-end my-3">
 
-    <button class="btn btn-primary"><a href="{{ route('admin.halls_movies.create') }}" class="text-white">Create new halls_movies</a></button>
+    <button class="btn btn-primary"><a href="{{ route('admin.halls_movies.create') }}" class="text-white">Crea nuova Proiezione</a></button>
 
 </div>
 @if (session('message'))

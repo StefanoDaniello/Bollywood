@@ -22,9 +22,9 @@
     </div>
     
     <div class="mb-3">
-        <label for="review" class="form-label">Review</label>
-        <textarea class="form-control @error('content') is-invalid @enderror" id="review"
-            name="review">{{ old('content', $review->content) }}</textarea>
+        <label for="content" class="form-label">Content</label>
+        <textarea class="form-control @error('content') is-invalid @enderror" id="content"
+            name="content">{{ old('content', $review->content) }}</textarea>
             @error('content')
                 <div class ="invalid-feedback">{{$errors->first('content')}}</div>
             @enderror 

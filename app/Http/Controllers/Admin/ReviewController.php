@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\controller;
+use App\Http\Requests\UpdateReviewRequest;
 use App\Models\Review;
 use App\Models\Movie;
 use Illuminate\Http\Request;

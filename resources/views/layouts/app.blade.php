@@ -39,6 +39,7 @@
                         <li class="nav-item @if(request()->is('/')) active @endif">
                             <a class="nav-link @if(request()->is('/')) text-primary fw-bold @endif" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        @auth
                         <li class="nav-item @if(request()->is('admin/halls')) active @endif">
                             <a class="nav-link @if(request()->is('admin/halls')) text-primary  fw-bold @endif" href="{{url('admin/halls') }}">{{ __('Sale') }}</a>
                         </li>
@@ -54,7 +55,7 @@
                         <li class="nav-item @if(request()->is('admin/halls_movies')) active @endif">
                             <a class="nav-link @if(request()->is('admin/halls_movies')) text-primary fw-bold @endif" href="{{url('admin/halls_movies') }}">{{ __('Halls Movies') }}</a>
                         </li>
-                       
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -82,6 +83,7 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
+                                <a class="dropdown-item" href="http://localhost:5174">Go to Website</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

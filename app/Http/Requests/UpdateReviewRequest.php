@@ -21,8 +21,6 @@ class UpdateReviewRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        //
     }
 }
