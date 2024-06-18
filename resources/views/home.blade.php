@@ -19,8 +19,10 @@
                 $defaultImage = "https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp";
                 $coverImage = $movie->cover_image ? asset('storage/' . $movie->cover_image) : $defaultImage;
             @endphp
+            <div class="img-carusel">
+                <img src="{{ $coverImage }}" class="d-block " alt="{{ $movie->title }}" onerror="this.onerror=null;this.src='{{ $defaultImage }}';">
+            </div>
             
-            <img src="{{ $coverImage }}" class="d-block w-100" alt="{{ $movie->title }}" onerror="this.onerror=null;this.src='{{ $defaultImage }}';">
             
 
                 <div class="carousel-caption d-none d-md-block">
@@ -52,6 +54,13 @@
   .carousel-control-prev-icon, .carousel-control-next-icon {
     background-color: gray ;
     border-radius: 50%;
+  }
+  .img-carusel{
+    width: 100%;
+    display: flex;
+    justify-content: center ;
+    overflow: hidden;
+
   }
   /* .mask1 {
   -webkit-mask-image: url(img/bollywood.png);

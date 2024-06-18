@@ -19,6 +19,9 @@
                         </li>
                     @endguest
                     @auth
+                        <li class="nav-item @if(request()->is('/')) active @endif">
+                            <a class="nav-link @if(request()->is('/')) text-primary fw-bold @endif" href="{{url('/') }}">{{ __('Home') }}</a>
+                        </li>
                         <li class="nav-item @if(request()->is('admin/halls')) active @endif">
                             <a class="nav-link @if(request()->is('admin/halls')) text-primary  fw-bold @endif" href="{{url('admin/halls') }}">{{ __('Sale') }}</a>
                         </li>
