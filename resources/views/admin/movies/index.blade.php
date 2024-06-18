@@ -19,23 +19,23 @@
                 <th>Trailer</th>
                 <th>Lingua</th>
                 <th>Durata</th>
-                <th>Azioni</th>
+                <th class="px-3">Azioni</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($movies as $movie)
             <tr>
-                <td>{{ $movie->title }}</td>
-                <td>{{ $movie->original_title }}</td>
-                <td>{{ $movie->overview }}</td>
+                <td>{{ str_limit($movie->title, 10) }}</td>
+                <td>{{ str_limit($movie->original_title, 10) }}</td>
+                <td>{{ str_limit($movie->overview, 20) }}</td>
                 <td>{{ $movie->cover_image }}</td>
                 <td>{{ $movie->release_date }}</td>
                 <td>{{ $movie->trailer }}</td>
                 <td>{{ $movie->language }}</td>
                 <td>{{ $movie->duration }}</td>
-                <td>
-                    <a href="{{ route('admin.movies.show', $movie->id) }}" title="Visualizza"><i class="fa-solid fa-eye"></i></a>
-                    <a href="{{ route('admin.movies.edit', $movie->id) }}" title="Modifica"><i class="fa-solid fa-pen"></i></a>
+                <td class="actions d-flex">
+                    <a href="{{ route('admin.movies.show', $movie->id) }}" title="Visualizza"><i class="fa-solid fa-eye "></i></a>
+                    <a href="{{ route('admin.movies.edit', $movie->id) }}" title="Modifica"><i class="fa-solid fa-pen mx-2"></i></a>
                     <form action="{{route('admin.movies.destroy', $movie->id)}}" method="POST" class="d-inline-block">
                         @csrf
                         @method('DELETE')
@@ -52,8 +52,22 @@
 </div>
 @include('partials.modal-delete')
 @endsection
+@php
+function str_limit($value, $limit = 100, $end = '...')
+{
+    if (mb_strwidth($value, 'UTF-8') <= $limit) {
+        return $value;
+    }
+    return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')).$end;
+}
+
+@endphp
 <style lang="scss" scoped>
     #create_movie {
         text-align: right;
-    }                            
+    }
+    .actions{
+        padding: 20px 15px !important;
+    }
+                  
 </style>

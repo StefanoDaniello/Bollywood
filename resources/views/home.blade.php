@@ -14,7 +14,15 @@
         <div class="carousel-inner">
             @foreach ($movies as $key => $movie)
             <div class="carousel-item @if($key == 0) active @endif" data-bs-interval="10000">
-                <img src="https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp" class="d-block w-100" alt="{{$movie->title}}">
+
+            @php
+                $defaultImage = "https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp";
+                $coverImage = $movie->cover_image ? asset('storage/' . $movie->cover_image) : $defaultImage;
+            @endphp
+            
+            <img src="{{ $coverImage }}" class="d-block w-100" alt="{{ $movie->title }}" onerror="this.onerror=null;this.src='{{ $defaultImage }}';">
+            
+
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-white">{{$movie->title}}</h5>
                     <p class="text-white">{{$movie->description}}</p>
