@@ -1,4 +1,3 @@
-{{-- !!!!!!!!!! --}}
 {{-- In questa pagina vogliamo mostrare una tabella riepilogativa delle proiezioni presenti per la sala specificata --}}
 
 
