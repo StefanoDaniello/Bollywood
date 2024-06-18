@@ -11,9 +11,9 @@
         class="card-img-top" alt="{{ $movie->title }}">
       <div class="card-body">
         <h5 class="card-title">{{ $movie->title }}</h5>
-        <p class="card-text"> {{ $movie->language }}</p>
-        <p class="card-text"> {{ $movie->release_date }}</p>
-        <p class="card-text"> {{ $movie->duration }}</p>
+        <p class="card-text">Lingua: {{ $movie->language }}</p>
+        <p class="card-text">Data Uscita Film: {{ $movie->release_date }}</p>
+        <p class="card-text">Durata Film: {{ $movie->duration }}</p>
         <p class="card-text">{{ $movie->overview }}</p>
         @if($movie->halls)
             {{-- $post->tags esso e un array di tags--}}
