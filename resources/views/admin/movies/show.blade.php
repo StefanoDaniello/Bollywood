@@ -7,7 +7,7 @@
   <a href="{{ route('admin.movies.index') }}" class="btn btn-primary my-4"><i><i class="fa-solid fa-arrow-left"></i></a>
   <div class="container d-flex justify-content-center m-4">
     <div class="card" >
-      <img src="https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp"
+      <img src="{{asset('storage/' . $movie->cover_image)}}"
         class="card-img-top" alt="{{ $movie->title }}">
       <div class="card-body">
         <h5 class="card-title">{{ $movie->title }}</h5>
