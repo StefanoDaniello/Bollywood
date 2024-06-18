@@ -11,7 +11,7 @@
           <img src="https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp" class="card-img-top" alt="{{ $review->name }}"> 
           <div class="card-body">
             <h5 class="card-title">{{ $review->author }}</h5>
-            <p class="card-text"> Colore Sala: {{ $review->content}}</p>
+            <p class="card-text">Contenuto Recensione: {{ $review->content}}</p>
             <div>Voto: {{ $review->rating }} </div>
             <a href="{{ route('admin.reviews.edit', $review->id) }}" class="btn btn-primary mt-3">Edit</a>
           </div>

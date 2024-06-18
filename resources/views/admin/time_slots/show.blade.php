@@ -11,8 +11,8 @@
           <img src="https://www.repstatic.it/content/nazionale/img/2020/05/07/112203308-19805bf2-2c83-4fdf-9d47-3273349c3847.jpg?webp" class="card-img-top" alt="{{ $time_slot->name }}"> 
           <div class="card-body">
             <h5 class="card-title">{{ $time_slot->name}}</h5>
-            <p class="card-text"> Colore Sala: {{ $time_slot->start_time}}</p>
-            <div>Voto: {{ $time_slot->end_time}} </div>
+            <p class="card-text"> Orario inizio fascia oraria: {{ $time_slot->start_time}}</p>
+            <div>Orario fine fascia oraria: {{ $time_slot->end_time}} </div>
             <a href="{{ route('admin.time_slots.edit', $time_slot->id) }}" class="btn btn-primary mt-3">Edit</a>
           </div>
       </div>

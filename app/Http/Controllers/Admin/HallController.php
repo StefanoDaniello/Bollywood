@@ -66,7 +66,6 @@ class HallController extends Controller
      */
     public function update(UpdateHallRequest $request, Hall $hall)
     {
-        $HallMovie = HallMovie::all();
         $form_data = $request->validated();
 
         if($form_data['seats_num']>50){
