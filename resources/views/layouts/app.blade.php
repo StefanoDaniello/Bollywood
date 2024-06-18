@@ -55,6 +55,11 @@
                         <li class="nav-item @if(request()->is('admin/halls_movies')) active @endif">
                             <a class="nav-link @if(request()->is('admin/halls_movies')) text-primary fw-bold @endif" href="{{url('admin/halls_movies') }}">{{ __('Halls Movies') }}</a>
                         </li>
+                        <li>
+                            <a href="http://localhost:5174/" class="nav-link">
+                                <i class="fa-solid fa-desktop mx-2"></i><span>Web App</span>
+                              </a>
+                        </li>
                         @endauth
                     </ul>
 
